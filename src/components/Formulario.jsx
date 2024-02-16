@@ -6,11 +6,11 @@ const Formulario = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [conpass, setConpass] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
 
   const validarInput = (e) => {
     e.preventDefault();
-    error = "";
+  
     if (nombre === "" || email === "" || pass === "" || conpass === "") {
       setError(true);
       return;
@@ -50,9 +50,11 @@ const Formulario = () => {
 
           <button className="btn btn-success mt-3" type="submit">
             Registrarse
+            
           </button>
-          <Alert />
+          {error ? <p className="error">estasdjsajdsad</p> : <p className="error2">estamos ok</p>}
         </div>
+      
       </form>
     </>
   );
