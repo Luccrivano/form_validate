@@ -7,16 +7,32 @@ const Formulario = () => {
   const [pass, setPass] = useState("");
   const [conpass, setConpass] = useState("");
   const [error, setError] = useState(true);
+  const [errorpass, setErrorPass] = useState(true);
+
+  
+  
+  
 
   const validarInput = (e) => {
     e.preventDefault();
   
     if (nombre === "" || email === "" || pass === "" || conpass === "") {
+
       setError(true);
       return;
     }
     setError(false);
-  };
+   //* Validar confirmacion pass
+    if (pass != conpass){
+       
+      setErrorPass(true);
+      
+      return;
+    } 
+      
+      setErrorPass(false);
+    }
+ 
 
   return (
     <>
@@ -30,6 +46,7 @@ const Formulario = () => {
             onChange={(e) => setNombre(e.target.value)}
           />
           <input
+            type="email"
             placeholder="Email"
             className="form-control"
             name="Email"
@@ -52,7 +69,10 @@ const Formulario = () => {
             Registrarse
             
           </button>
-          {error ? <p className="error">estasdjsajdsad</p> : <p className="error2">estamos ok</p>}
+          <Alert error={error} errorPass={errorpass}  /> 
+          {/* <Alert errorPass={errorpass}  />  */}
+          {/* {error ? <p className="error">Completa todos los campos</p> : <p className="error2">El formulario ya fue enviado</p>}
+          {errorpass ? <p className="error">Las contraseñas no coinciden</p> : <p className="error2">ok</p>} */}
         </div>
       
       </form>
