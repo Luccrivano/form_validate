@@ -2,7 +2,7 @@ import "./App.css";
 import Registro from "./components/Registro";
 //import Formulario from "./components/Formulario";
 
-function App() {
+function App({item}) {
   return (
     <>
       
